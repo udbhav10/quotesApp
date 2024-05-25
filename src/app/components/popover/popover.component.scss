@@ -1,0 +1,95 @@
+@import '../../../styles.scss';
+
+.popover {
+    position: fixed;
+    top: 50%; /* Position the element 50% down from the top */
+    left: 50%; /* Position the element 50% from the left */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: calc(50 * 100vw / 100);
+    padding: 60px;
+    color: $font-color-primary;
+    background-color: $background-color-secondary;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 2px solid $button-background-color;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 40px 15px rgba(211, 78, 17, 0.2);
+
+    .close {
+        padding: 10px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: white;
+    }
+
+    .popover-tags {
+        padding: 8px;
+        background-color: $button-background-color;
+        width: 200px;
+        border-radius: 10px;
+        border-top-left-radius: 0px;
+        margin-bottom: 32px;
+        font-size: 16px;
+    }
+    .popover-quote {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    .popover-line {
+        width: 100%;
+        hr {
+            opacity: 25%;
+            margin-bottom: 16px;
+        }
+    }
+    .popover-author {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+    .popover-date {
+        font-size: 12px;
+        color: $font-color-secondary;
+    }
+}
+
+@media (min-width: 1365px) {
+    .popover {
+        .popover-tags, .popover-quote, .popover-author {
+            font-size: 18px;
+        }
+        .popover-date {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (min-width: 1650px) {
+    .popover {
+        .popover-tags, .popover-quote, .popover-author {
+            font-size: 20px;
+        }
+        .popover-date {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .popover {
+        .popover-tags, .popover-quote, .popover-author {
+            font-size: 14px;
+        }
+        .popover-date {
+            font-size: 10px;
+        }
+    }
+}
+

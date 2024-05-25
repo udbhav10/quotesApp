@@ -1,0 +1,27 @@
+<app-header [class.not-in-focus] = "showPopover"></app-header>
+
+<div class="filter-area" [class.not-in-focus] = "showPopover">
+  <label for="authorSelect" class="author-dropdown-label">Filter by author:</label>
+  <select id="authorSelect" class="author-dropdown" [(ngModel)]="selectedAuthor">
+    <option *ngFor="let author of allAuthors" [value]="author.slug">{{ author.name }}</option>
+  </select>
+  <button (click)="refreshAuthorQuotes()" class="author-search">Search</button>
+
+</div>
+
+<div class="content-area" [class.not-in-focus] = "showPopover">
+  <div class="author-area">
+    <img [src]="currentAuthorImageLink" alt="Author-Image">
+    <p class="author-name">{{ currentAuthor.name }}</p>
+    <p class="author-bio"> {{ currentAuthor.bio }} </p>
+  </div>
+  <div class="quotes-area">
+    <app-quotecard *ngFor="let quote of authorQuotes" [quote]="quote" [tagsNotAuthorName]="true"
+      (sendQuoteEvent)="openPopover($event)">
+    </app-quotecard>
+  </div>
+</div>
+
+<app-popover (closeClick)="closePopover()" *ngIf="showPopover" [quoteTags]="selectedQuote.tags.join(', ')"
+  [quoteContent]="selectedQuote.content" [quoteAuthor]="selectedQuote.author" [quoteDate]="selectedQuote.dateAdded">
+</app-popover>

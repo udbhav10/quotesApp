@@ -1,0 +1,21 @@
+<app-header [class.not-in-focus] = "showPopover"></app-header>
+
+<div class="filter-area" [class.not-in-focus] = "showPopover">
+  <label for="tagSelect" class="tag-dropdown-label">Filter by tag:</label>
+  <select id="tagSelect" class="tag-dropdown" [(ngModel)]="selectedTag" (change)="dropdownClick()">
+    <option value="choose-a-tag" selected>Choose a tag</option>
+    <option *ngFor="let tag of quoteTags" [value]="tag">{{ tag }}</option>
+  </select>
+  <button (click)="tagSearch()" class="tag-search" [class.disabled]="searchButtonDisabled">Search</button>
+  <button (click)="showAll()" class="reset">Reset</button>
+
+</div>
+<div class="quotes-area" [class.not-in-focus] = "showPopover">
+  <app-quotecard *ngFor="let quote of allQuotes" [quote]="quote" [tagsNotAuthorName]="false"
+    (sendQuoteEvent)="openPopover($event)">
+  </app-quotecard>
+</div>
+
+<app-popover (closeClick)="closePopover()" *ngIf="showPopover" [quoteTags]="selectedQuote.tags.join(', ')"
+  [quoteContent]="selectedQuote.content" [quoteAuthor]="selectedQuote.author" [quoteDate]="selectedQuote.dateAdded">
+</app-popover>

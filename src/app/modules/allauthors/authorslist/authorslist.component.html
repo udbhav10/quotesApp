@@ -1,0 +1,8 @@
+<app-header [class.not-in-focus] = "showPopover"></app-header>
+
+<div class="authors-area" [class.not-in-focus] = "showPopover">
+    <app-authorcard *ngFor="let author of allAuthors" [author] = "author" [imageLink] = "getImageLink(author.slug)" (sendAuthorObject) = "openPopover($event)">
+    </app-authorcard>
+</div>
+
+<app-authorpopover [imageLink] = "getImageLink(author.slug)" (closeClick)="closePopover()" *ngIf="showPopover" [author] = "author"></app-authorpopover>

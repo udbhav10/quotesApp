@@ -1,0 +1,19 @@
+<div class="popover">
+  <div class="content-section">
+    <div class="left-section">
+      <img [src]="imageLink" alt="Author-Image">
+      <p> {{ author.quoteCount }} quotes </p>
+    </div>
+    <div class="right-section">
+      <h1>{{ author.name }}</h1>
+      <p>{{ author.bio }}</p>
+        <p><b>Renowned as: </b>{{ author.description }}</p>
+    </div>
+  </div>
+  <div class="line-section">
+    <hr>
+  </div>
+  <div class="close-section">
+    <button (click)="closePopover()">Close</button>
+  </div>
+</div>

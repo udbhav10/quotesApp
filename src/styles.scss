@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+$background-color-primary: rgb(25, 25, 25);
+$background-color-secondary: rgb(45, 45, 45);
+$font-color-primary: rgb(255, 255, 255);
+$font-color-secondary: rgb(175, 175, 175);
+$button-background-color: rgb(211, 78, 17);
+$section-color: rgb(35, 89, 206);
+
+body {
+    margin: 2px;
+    font-family: "Roboto Mono", monospace;
+    background-color: $background-color-primary;
+}

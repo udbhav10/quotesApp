@@ -1,0 +1,95 @@
+@import '../../../../styles.scss';
+
+.filter-area {
+    text-align: center;
+    padding: 50px;
+    color: $font-color-primary;
+    font-size: 13px;
+    .tag-dropdown-label {
+        margin-right: 10px;
+    }
+    .tag-dropdown {
+        cursor: pointer;
+        padding: 8px 12px;
+        width: 150px;
+        color: $font-color-primary;
+        font-family: "Roboto Mono", monospace;
+        background-color: $background-color-secondary;
+        border-radius: 5px;
+        margin-right: 15px;
+        option {
+            font-size: 13px;
+            color: $font-color-primary;
+            font-family: "Roboto Mono", monospace;
+            background-color: $background-color-secondary;
+        }
+    }
+    .tag-search {
+        cursor: pointer;
+        font-size: 13px;
+        padding: 9px 50px;
+        color: $font-color-primary;
+        font-family: "Roboto Mono", monospace;
+        background-color: $button-background-color;
+        border: 0px;
+        border-radius: 5px;
+        margin-right: 15px;
+    }
+    .tag-search:hover {
+        background-color: $background-color-primary;
+        border: 1px solid $button-background-color;
+    }
+    .tag-search:active {
+        box-shadow: 0px 0px 5px 5px rgba(211, 78, 17, 0.2);
+    }
+
+    .reset {
+        cursor: pointer;
+        font-size: 13px;
+        padding: 9px 50px;
+        color: $button-background-color;
+        font-family: "Roboto Mono", monospace;
+        background-color: inherit;
+        border: 1px solid $button-background-color;
+        border-radius: 5px;
+    }
+    .reset:hover {
+        background-color: $button-background-color;
+        color: $font-color-primary;
+    }
+    .reset:active {
+        box-shadow: 0px 0px 5px 5px rgba(211, 78, 17, 0.2);
+    }
+
+}
+
+.quotes-area {
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2vh 1vw;
+}
+
+@media (min-width: 1365px) {
+    .quotes-area {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (min-width: 1650px) {
+    .quotes-area {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.not-in-focus {
+    opacity: 25%;
+    pointer-events: none;
+}

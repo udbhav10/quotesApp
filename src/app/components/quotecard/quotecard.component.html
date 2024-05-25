@@ -1,0 +1,17 @@
+<div class="quote-card">
+    <div class="quote-card-img">
+        <img src="../../assets/images/quote.png" alt='"' height="25px">
+    </div>
+    <div *ngIf="!tagsNotAuthorName" class="quote-card-author">
+        {{ quote.author }}
+    </div>
+    <div *ngIf="tagsNotAuthorName" class="quote-card-author">
+        {{ quote.tags.join(', ') }}
+    </div>
+    <div class="quote-card-quote">
+        {{  quote.content | trim }}
+    </div>
+    <div class="quote-card-button">
+        <button (click) = "viewFullQuote()">View Full quote</button>
+    </div>
+</div>

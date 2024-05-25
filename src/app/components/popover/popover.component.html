@@ -1,0 +1,19 @@
+<div class="popover">
+  <i (click)="closePopover()" (mouseover)="isHovered = true" (mouseout)="isHovered = false"
+    [ngClass]="{'fa-fade': isHovered}" class="fa-solid fa-x close" style="color: #afafaf;"></i>
+  <div class="popover-tags">
+    {{quoteTags}}
+  </div>
+  <div class="popover-quote">
+    {{quoteContent}}
+  </div>
+  <div class="popover-line">
+    <hr>
+  </div>
+  <div class="popover-author">
+    {{quoteAuthor}}
+  </div>
+  <div class="popover-date">
+    <i class="fa-regular fa-calendar" style="color: #afafaf;"></i> {{quoteDate}}
+  </div>
+</div>

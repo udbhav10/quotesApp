@@ -1,0 +1,14 @@
+.authors-area {
+    margin-top: 50px;
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2vh 1vw;
+}
+
+.not-in-focus {
+    opacity: 25%;
+    pointer-events: none;
+}
