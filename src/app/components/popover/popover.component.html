@@ -1,4 +1,4 @@
-<div class="popover">
+<div [@popoverTransition] = " popoverOpen ? 'open' : 'closed' " class="popover">
   <i (click)="closePopover()" (mouseover)="isHovered = true" (mouseout)="isHovered = false"
     [ngClass]="{'fa-fade': isHovered}" class="fa-solid fa-x close" style="color: #afafaf;"></i>
   <div class="popover-tags">

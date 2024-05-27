@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchquoteService } from '../../../services/fetchquoteservice/fetchquote.service';
 import { quoteObject } from '../../../definitions/quoteObject';
+import { PopoverComponent } from 'src/app/components/popover/popover.component';
 @Component({
   selector: 'app-quoteslist',
   templateUrl: './quoteslist.component.html',
@@ -14,6 +15,7 @@ export class QuoteslistComponent implements OnInit {
   searchButtonDisabled: boolean;
   selectedQuote: quoteObject;
   showPopover: boolean;
+  @ViewChild(PopoverComponent) thisPopover: PopoverComponent;
 
   constructor(private quoteAPI: FetchquoteService) {
     this.searchButtonDisabled = true;
@@ -53,10 +55,15 @@ export class QuoteslistComponent implements OnInit {
   openPopover(quote: quoteObject) {
     this.selectedQuote = quote;
     this.showPopover = true;
+    setTimeout( () => {
+      this.thisPopover.openPopover();
+    }, 10 )  
   }
 
   closePopover() {
-    this.showPopover = false;
+    setTimeout( () => {
+      this.showPopover = false;
+    }, 200 ) 
   }
 
 }

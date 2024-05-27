@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FetchquoteService } from '../../../services/fetchquoteservice/fetchquote.service';
 import { FetchAuthorService } from '../../../services/fetchauthorservice/fetch-author.service';
 import { quoteObject } from '../../../definitions/quoteObject';
 import { authorObject } from '../../../definitions/authorObject';
 import { ActivatedRoute } from '@angular/router';
+import { PopoverComponent } from 'src/app/components/popover/popover.component';
+
 @Component({
   selector: 'app-authorsquotes',
   templateUrl: './authorsquotes.component.html',
@@ -18,6 +20,8 @@ export class AuthorsquotesComponent implements OnInit {
   currentAuthorImageLink: string;
   selectedQuote: quoteObject;
   showPopover: boolean;
+  @ViewChild(PopoverComponent) thisPopover: PopoverComponent;
+
 
   constructor(private quoteAPI: FetchquoteService, private fetchAuthor: FetchAuthorService, private route: ActivatedRoute) {
     this.fetchAuthorNames();
@@ -64,10 +68,15 @@ export class AuthorsquotesComponent implements OnInit {
     openPopover(quote: quoteObject) {
       this.selectedQuote = quote;
       this.showPopover = true;
+      setTimeout( () => {
+        this.thisPopover.openPopover();
+      }, 10 )  
     }
   
     closePopover() {
-      this.showPopover = false;
+      setTimeout( () => {
+        this.showPopover = false;
+      }, 200 ) 
     }
 
 }

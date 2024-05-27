@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FetchAuthorService } from '../../../services/fetchauthorservice/fetch-author.service';
 import { authorObject } from '../../../definitions/authorObject';
+import { AuthorpopoverComponent } from '../authorpopover/authorpopover.component';
+
 @Component({
   selector: 'app-authorslist',
   templateUrl: './authorslist.component.html',
@@ -11,6 +13,7 @@ export class AuthorslistComponent implements OnInit {
   allAuthors: authorObject[] = [];
   showPopover: boolean;
   author: authorObject;
+  @ViewChild(AuthorpopoverComponent) thisPopover: AuthorpopoverComponent;
 
   constructor(private fetchAuthor: FetchAuthorService) {
 
@@ -38,10 +41,15 @@ export class AuthorslistComponent implements OnInit {
   openPopover(authorObj: authorObject): void {
     this.author = authorObj;
     this.showPopover = true;
+    setTimeout( () => {
+      this.thisPopover.openPopover();
+    }, 10 )  
   }
 
   closePopover(): void {
-    this.showPopover = false;
+    setTimeout( () => {
+      this.showPopover = false;
+    }, 200 ) 
   }
 
 }

@@ -4,7 +4,7 @@
   <h1 (click)="openPopover()" [class.not-in-focus]="showPopover">
     {{ quoteOfTheDay.content }}
   </h1>
-  <app-popover (closeClick)="closePopover()" *ngIf="showPopover" [quoteTags]="quoteOfTheDay.tags.join(', ')"
+  <app-popover (closeClick)="closePopover()" *ngIf = "showPopover" [quoteTags]="quoteOfTheDay.tags.join(', ')"
     [quoteContent]="quoteOfTheDay.content" [quoteAuthor]="quoteOfTheDay.author" [quoteDate]="quoteOfTheDay.dateAdded">
   </app-popover>
 </div>
