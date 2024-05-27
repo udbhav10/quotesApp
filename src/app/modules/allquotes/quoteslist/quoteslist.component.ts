@@ -18,20 +18,20 @@ export class QuoteslistComponent implements OnInit {
   @ViewChild(PopoverComponent) thisPopover: PopoverComponent;
 
   constructor(private quoteAPI: FetchquoteService) {
-    this.searchButtonDisabled = true;
-    this.selectedTag = "choose-a-tag";
-    this.showAll();
+    
   }
 
   ngOnInit(): void {
+    this.showAll();
   }
 
   dropdownClick() {
-    this.showPopover = false;
     this.searchButtonDisabled = (this.selectedTag === 'choose-a-tag') ? true : false;
   }
 
   showAll() {
+    this.selectedTag = 'choose-a-tag';
+    this.searchButtonDisabled = true;
     this.allQuotes = [];
     this.quoteAPI.fetchAll().subscribe((data: any[]) => {
       data.forEach(page => {
@@ -41,8 +41,6 @@ export class QuoteslistComponent implements OnInit {
         quote.tags.forEach((tag) => this.quoteTags.add(tag));
       })
     });
-    this.selectedTag = 'choose-a-tag';
-    this.searchButtonDisabled = true;
   }
 
   tagSearch() {
