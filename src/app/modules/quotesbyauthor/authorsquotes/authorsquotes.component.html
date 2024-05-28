@@ -11,7 +11,7 @@
 
 <div class="content-area" [class.not-in-focus] = "showPopover">
   <div class="author-area">
-    <img [src]="currentAuthorImageLink" alt="Author-Image">
+    <img [src]="currentAuthorImageLink" onerror="this.src = '../../../../assets/images/blankPerson.jpg'" alt="Author-Image">
     <p class="author-name">{{ currentAuthor.name }}</p>
     <p class="author-bio"> {{ currentAuthor.bio }} </p>
   </div>

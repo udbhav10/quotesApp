@@ -1,7 +1,7 @@
 <div [@popoverTransition] = " popoverOpen ? 'open' : 'closed' " class="popover">
   <div class="content-section">
     <div class="left-section">
-      <img [src]="imageLink" alt="Author-Image">
+      <img [src]="imageLink" onerror="this.src = '../../../../assets/images/blankPerson.jpg'" alt="Author-Image">
       <p> {{ author.quoteCount }} quotes </p>
     </div>
     <div class="right-section">
