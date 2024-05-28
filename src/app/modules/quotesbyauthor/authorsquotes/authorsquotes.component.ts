@@ -23,28 +23,27 @@ export class AuthorsquotesComponent implements OnInit {
   @ViewChild(PopoverComponent) thisPopover: PopoverComponent;
 
 
-  constructor(private quoteAPI: FetchquoteService, private fetchAuthor: FetchAuthorService, private route: ActivatedRoute) {
-    this.fetchAuthorNames();
-
-  }
+  constructor(private quoteAPI: FetchquoteService, private fetchAuthor: FetchAuthorService, private route: ActivatedRoute) {  }
 
   ngOnInit(): void {
+    this.fetchAuthorNames();
     this.route.queryParams.subscribe( params => {
       if(params['author']) {
         this.selectedAuthor = params['author'];
       } else {
         this.selectedAuthor = "a-a-milne";
       }
+      this.refreshAuthorQuotes();
     } )
-    this.refreshAuthorQuotes();
+
   }
 
   refreshAuthorQuotes() {
     this.authorQuotes = [];
-    this.fetchAuthorFromSlug();
+    this.currentAuthorImageLink = "";
     this.fetchCurrentAuthorImage();
+    this.fetchAuthorFromSlug();
     this.quoteAPI.fetchByAuthor(this.selectedAuthor).subscribe((data) => this.authorQuotes = data.results);
-
   }
 
   fetchAuthorFromSlug() {

@@ -5,7 +5,7 @@
   <select id="authorSelect" class="author-dropdown" [(ngModel)]="selectedAuthor">
     <option *ngFor="let author of allAuthors" [value]="author.slug">{{ author.name }}</option>
   </select>
-  <button (click)="refreshAuthorQuotes()" class="author-search">Search</button>
+  <button [routerLink] = "['/quotesbyauthor']" [queryParams] = "{ author: selectedAuthor }" class="author-search">Search</button>
 
 </div>
 

@@ -15,9 +15,7 @@ export class AuthorslistComponent implements OnInit {
   author: authorObject;
   @ViewChild(AuthorpopoverComponent) thisPopover: AuthorpopoverComponent;
 
-  constructor(private fetchAuthor: FetchAuthorService) {
-
-   }
+  constructor(private fetchAuthor: FetchAuthorService) { }
 
   ngOnInit(): void {
     this.showAll();
