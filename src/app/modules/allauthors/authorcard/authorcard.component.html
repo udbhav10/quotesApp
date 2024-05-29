@@ -1,6 +1,6 @@
 <div class="author-card">
   <div class="author-card-img">
-    <img [src]="imageLink" alt="Author-Image" onerror="this.src = '../../../../assets/images/blankPerson.jpg'"
+    <img #authorImage [src]="imageLink" alt="Author-Image" onerror="this.src = '../../../../assets/images/blankPerson.jpg'"
       loading="lazy">
   </div>
   <div class="author-card-name">
